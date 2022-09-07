@@ -27,15 +27,15 @@ Foi utilizado:
      * OBS.: Possíveis status: `Pagamento aprovado` | `Enviado para transportadora` | `Entregue` | `Cancelada`.
 - ✅ Uma venda contém informação sobre o vendedor que a efetivou, data, identificador do pedido e os itens que foram vendidos;
 - ✅ O vendedor deve possuir id, cpf, nome, e-mail e telefone;
-- A inclusão de uma venda deve possuir pelo menos 1 item;
+- ✅ A inclusão de uma venda deve possuir pelo menos 1 item;
 - A atualização de status deve permitir somente as seguintes transições: 
   - De: `Aguardando pagamento` Para: `Pagamento Aprovado`
   - De: `Aguardando pagamento` Para: `Cancelada`
   - De: `Pagamento Aprovado` Para: `Enviado para Transportadora`
   - De: `Pagamento Aprovado` Para: `Cancelada`
   - De: `Enviado para Transportador`. Para: `Entregue`
-- A API não precisa ter mecanismos de autenticação/autorização;
-- A aplicação não precisa implementar os mecanismos de persistência em um banco de dados, eles podem ser persistidos "em memória".
+- ✅ A API não precisa ter mecanismos de autenticação/autorização;
+- ✅ A aplicação não precisa implementar os mecanismos de persistência em um banco de dados, eles podem ser persistidos "em memória". (oohh, god, vi tarde demais, hehe.)
 
 ## PONTOS QUE SERÃO AVALIADOS
 - Arquitetura da aplicação - embora não existam muitos requisitos de negócio, iremos avaliar como o projeto foi estruturada, bem como camadas e suas responsabilidades;
