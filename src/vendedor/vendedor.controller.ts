@@ -9,6 +9,10 @@ export class VendedorController {
 
   @Post()
   create(@Body() createVendedorDto: VendedorDto) {
+
+    createVendedorDto.created_at = new Date();
+    createVendedorDto.updated_at = new Date();
+
     return this.vendedorService.create(createVendedorDto);
   }
 
@@ -24,6 +28,7 @@ export class VendedorController {
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateVendedorDto: UpdateVendedorDto) {
+    updateVendedorDto.updated_at = new Date();
     return this.vendedorService.update(+id, updateVendedorDto);
   }
 

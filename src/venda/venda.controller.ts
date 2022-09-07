@@ -9,6 +9,11 @@ export class VendaController {
 
   @Post()
   create(@Body() createVendaDto: VendaDto) {
+
+    createVendaDto.created_at = new Date();
+    createVendaDto.updated_at = new Date();
+    createVendaDto.status = 1; // 1 = "Aguardando pagamento"
+
     return this.vendaService.create(createVendaDto);
   }
 
@@ -23,7 +28,14 @@ export class VendaController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateVendaDto: UpdateVendaDto) {
+  async update(@Param('id') id: string, @Body() updateVendaDto: UpdateVendaDto) {
+    updateVendaDto.updated_at = new Date();
+    let venda = await this.vendaService.findOne(parseInt(id));
+
+    if (updateVendaDto.status != 0)
+      if (venda.status > updateVendaDto.status)
+        throw new Error("Não é possível retroceder no status da venda.");
+
     return this.vendaService.update(+id, updateVendaDto);
   }
 

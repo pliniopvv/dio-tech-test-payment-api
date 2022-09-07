@@ -28,7 +28,7 @@ Foi utilizado:
 - ✅ Uma venda contém informação sobre o vendedor que a efetivou, data, identificador do pedido e os itens que foram vendidos;
 - ✅ O vendedor deve possuir id, cpf, nome, e-mail e telefone;
 - ✅ A inclusão de uma venda deve possuir pelo menos 1 item;
-- A atualização de status deve permitir somente as seguintes transições: 
+- ✅ A atualização de status deve permitir somente as seguintes transições: 
   - De: `Aguardando pagamento` Para: `Pagamento Aprovado`
   - De: `Aguardando pagamento` Para: `Cancelada`
   - De: `Pagamento Aprovado` Para: `Enviado para Transportadora`

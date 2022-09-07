@@ -9,6 +9,10 @@ export class ItemController {
 
   @Post()
   create(@Body() createItemDto: ItemDto) {
+
+    createItemDto.created_at = new Date();
+    createItemDto.updated_at = new Date();
+
     return this.itemService.create(createItemDto);
   }
 
@@ -24,6 +28,7 @@ export class ItemController {
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateItemDto: UpdateItemDto) {
+    updateItemDto.updated_at = new Date();
     return this.itemService.update(+id, updateItemDto);
   }
 
