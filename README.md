@@ -20,7 +20,7 @@ Foi utilizado:
 ## O TESTE
 - ✅ Construir uma API REST utilizando .Net Core, Java ou NodeJs (com Typescript);
 - ✅ A API deve expor uma rota com documentação swagger (http://.../api-docs).
-- A API deve possuir 3 operações:
+- ✅ A API deve possuir 3 operações:
   1) Registrar venda: Recebe os dados do vendedor + itens vendidos. Registra venda com status "Aguardando pagamento";
   2) Buscar venda: Busca pelo Id da venda;
   3) Atualizar venda: Permite que seja atualizado o status da venda.

@@ -27,7 +27,7 @@ export class VendaService {
   }
 
   findOne(id: number) {
-    return this.vendaRepository.findOne({ where: { id } });
+    return this.vendaRepository.findOne({ where: { id }, relations: {items:true,vendedor: true} });
   }
 
   update(id: number, updateVendaDto: UpdateVendaDto) {
