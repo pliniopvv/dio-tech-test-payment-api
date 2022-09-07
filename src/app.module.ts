@@ -8,6 +8,9 @@ import { debug } from 'console';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { env } from './utils/Utils.tools';
+import { ItemModule } from './item/item.module';
+import { VendaModule } from './venda/venda.module';
+import { VendedorModule } from './vendedor/vendedor.module';
 
 let DB_SOURCE = env('DB_SOURCE');
 
@@ -23,6 +26,9 @@ let _entities = [];
       entities: _entities,
       synchronize: true,
   }),
+    ItemModule,
+    VendaModule,
+    VendedorModule,
 ],
   controllers: [AppController],
   providers: [AppService],
