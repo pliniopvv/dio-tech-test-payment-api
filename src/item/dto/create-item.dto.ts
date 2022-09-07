@@ -1,8 +1,7 @@
-import { ApiProperty } from '@nestjs/swagger';
-import { Item } from 'src/entities/Itens.entitie';
 import { VendaDto } from 'src/venda/dto/create-venda.dto';
+import { ApiProperty } from '@nestjs/swagger';
 
-export class ItemDto extends Item {
+export class ItemDto {
     id: number;
 
     @ApiProperty()
@@ -13,4 +12,6 @@ export class ItemDto extends Item {
     valor: number;
     created_at: Date;
     updated_at: Date;
+    vendas: VendaDto[];
+    vendasId: number;
 }

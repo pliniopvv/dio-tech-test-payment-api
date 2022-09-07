@@ -26,15 +26,14 @@ export class Venda {
     vendedor: Vendedor;
 
     @OneToMany((type) => Item, (item) => item.vendas)
-    @JoinColumn()
     items: Item[];
 
     @Column()
     status: number;
 
-    @Column()
+    @Column({ default: () => 'CURRENT_TIMESTAMP' })
     created_at: Date;
 
-    @Column()
+    @Column({ default: () => 'CURRENT_TIMESTAMP' })
     updated_at: Date;
 }

@@ -1,6 +1,5 @@
-import { ManyToOne, Entity , PrimaryGeneratedColumn, Column } from 'typeorm';
+import { JoinColumn, OneToMany, ManyToOne, Entity , PrimaryGeneratedColumn, Column } from 'typeorm';
 import { Venda } from './Venda.entitie';
-import { Vendedor } from './Vendedor.entitie';
 
 @Entity()
 export class Item {
@@ -17,12 +16,15 @@ export class Item {
     @Column()
     valor: number;
 
-    @Column()
+    @Column({ default: () => 'CURRENT_TIMESTAMP' })
     created_at: Date;
 
-    @Column()
+    @Column({ default: () => 'CURRENT_TIMESTAMP' })
     updated_at: Date;
 
     @ManyToOne((type) => Venda, (venda) => venda.items)
+    @JoinColumn()
     vendas: Venda[];
+
+    vendasId: number;
 }

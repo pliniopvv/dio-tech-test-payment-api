@@ -4,20 +4,26 @@ import { VendaDto } from './dto/create-venda.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { UpdateVendaDto } from './dto/update-venda.dto';
+import { Item } from 'src/entities/Itens.entitie';
 
 @Injectable()
 export class VendaService {
   constructor(
     @InjectRepository(Venda)
-    private vendaRepository: Repository<Venda>
+    private vendaRepository: Repository<Venda>,
+    @InjectRepository(Item)
+    private itemRepository: Repository<Item>
    ) {}
 
-  create(createVendaDto: VendaDto) {
-    return this.vendaRepository.save(createVendaDto);
+  async create(createVendaDto: VendaDto) {
+          let venda = await this.vendaRepository.save(createVendaDto);
+          // @ts-ignore
+          createVendaDto.items.forEach(item => item.vendas = venda.id);
+    return this.itemRepository.save(createVendaDto.items);;
   }
 
   findAll() {
-    return this.vendaRepository.find();
+    return this.vendaRepository.find({ relations: { items: true, vendedor: true } });
   }
 
   findOne(id: number) {

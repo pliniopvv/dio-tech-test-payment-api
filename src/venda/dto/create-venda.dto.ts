@@ -1,10 +1,9 @@
-import { Venda } from 'src/entities/Venda.entitie';
 import { ApiProperty } from '@nestjs/swagger';
 import { VendedorDto } from "src/vendedor/dto/create-vendedor.dto";
 import { ItemDto } from "src/item/dto/create-item.dto";
 
 
-export class VendaDto extends Venda {
+export class VendaDto {
     id: number;
     @ApiProperty()
     vendedor: VendedorDto;

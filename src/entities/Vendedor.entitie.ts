@@ -19,10 +19,10 @@ export class Vendedor {
     @Column()
     telefone: number;
 
-    @Column()
+    @Column({ default: () => 'CURRENT_TIMESTAMP' })
     created_at: Date;
 
-    @Column()
+    @Column({ default: () => 'CURRENT_TIMESTAMP' })
     updated_at: Date;
 
     vendas: Venda[];
