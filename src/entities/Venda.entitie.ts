@@ -5,10 +5,10 @@ import { Vendedor } from './Vendedor.entitie';
 export class STATUS {
     private signo = ["Cancelada", "Aguardando pagamento", "Pagamento aprovado","Enviado para transportadora","Entregue"]
     
-    Cancelada = 0;
-    Aguardando_pagamento = 1;
-    Pagamento_aprovado = 2; 
-    Enviado_para_transportadora = 3; 
+    Aguardando_pagamento = 0;
+    Pagamento_aprovado = 1; 
+    Cancelada = 2;
+    Enviado_para_transportadora = 3;
     Entregue = 4;
 
     decode(intStatus: number) {

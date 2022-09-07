@@ -9,6 +9,7 @@ export class VendaDto {
     vendedor: VendedorDto;
     @ApiProperty()
     items: ItemDto[];
+    @ApiProperty()
     status: number;
     created_at: Date;
     updated_at: Date;

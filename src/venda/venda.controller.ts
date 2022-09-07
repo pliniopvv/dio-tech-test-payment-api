@@ -32,9 +32,14 @@ export class VendaController {
     updateVendaDto.updated_at = new Date();
     let venda = await this.vendaService.findOne(parseInt(id));
 
-    if (updateVendaDto.status != 0)
-      if (venda.status > updateVendaDto.status)
-        throw new Error("Não é possível retroceder no status da venda.");
+    if (updateVendaDto.status > 4)
+      throw new Error("Status inexistente!");
+
+    if (venda.status == 2)
+      throw new Error("Não é possível alterar o status de uma compra cancelada.");
+
+    if (venda.status > updateVendaDto.status)
+      throw new Error("Não é possível retroceder no status da venda.");
 
     return this.vendaService.update(+id, updateVendaDto);
   }
